@@ -86,3 +86,27 @@ CIMGUI_API bool ImGui_ImplSDL3_ProcessEvent(const SDL_Event* event);
 CIMGUI_API void ImGui_ImplSDL3_SetGamepadMode(ImGui_ImplSDL3_GamepadMode mode,SDL_Gamepad** manual_gamepads_array,int manual_gamepads_count);
 
 #endif
+#ifdef CIMGUI_USE_SDL_RENDERER3
+struct SDL_Renderer;
+
+// Follow "Getting Started" link and check examples/ folder to learn about using backends!
+CIMGUI_API bool     ImGui_ImplSDLRenderer3_Init(SDL_Renderer* renderer);
+CIMGUI_API void     ImGui_ImplSDLRenderer3_Shutdown();
+CIMGUI_API void     ImGui_ImplSDLRenderer3_NewFrame();
+CIMGUI_API void     ImGui_ImplSDLRenderer3_RenderDrawData(ImDrawData* draw_data, SDL_Renderer* renderer);
+
+// Called by Init/NewFrame/Shutdown
+CIMGUI_API bool     ImGui_ImplSDLRenderer3_CreateFontsTexture();
+CIMGUI_API void     ImGui_ImplSDLRenderer3_DestroyFontsTexture();
+CIMGUI_API bool     ImGui_ImplSDLRenderer3_CreateDeviceObjects();
+CIMGUI_API void     ImGui_ImplSDLRenderer3_DestroyDeviceObjects();
+
+// [BETA] Selected render state data shared with callbacks.
+// This is temporarily stored in GetPlatformIO().Renderer_RenderState during the ImGui_ImplSDLRenderer3_RenderDrawData() call.
+// (Please open an issue if you feel you need access to more data)
+struct ImGui_ImplSDLRenderer3_RenderState
+{
+    SDL_Renderer*       Renderer;
+};
+#endif
+
