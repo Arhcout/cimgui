@@ -104,9 +104,9 @@ CIMGUI_API void     ImGui_ImplSDLRenderer3_DestroyDeviceObjects();
 // [BETA] Selected render state data shared with callbacks.
 // This is temporarily stored in GetPlatformIO().Renderer_RenderState during the ImGui_ImplSDLRenderer3_RenderDrawData() call.
 // (Please open an issue if you feel you need access to more data)
-struct ImGui_ImplSDLRenderer3_RenderState
+typedef struct ImGui_ImplSDLRenderer3_RenderState
 {
     SDL_Renderer*       Renderer;
-};
+}ImGui_ImplSDLRenderer3_RenderState;
 #endif
 
